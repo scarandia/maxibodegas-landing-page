@@ -64,11 +64,9 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                    <p className="text-gray-500 text-sm mb-4 md:mb-0">
-                        <div className="text-gray-500 text-sm">
-                            © {new Date().getFullYear()} MaxiBodegas. Todos los derechos reservados.
-                        </div>
-                    </p>
+                    <div className="text-gray-500 text-sm mb-4 md:mb-0">
+                        © {new Date().getFullYear()} MaxiBodegas. Todos los derechos reservados.
+                    </div>
                 </div>
             </div>
         </footer>

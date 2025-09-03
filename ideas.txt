@@ -35,49 +35,10 @@
 
 
 3. Formulario de Reserva o Llamado a la Acción (CTA)
+        
         Facilita que el usuario te contacte o reserve.
-
-        Ejemplo de formulario corto:
-
-        Nombre
-
-        Teléfono
-
-        Correo
-
-        Tamaño de unidad
-
-        ✅ O simplemente un botón: “Reserva ahora”
+        formulario corto 
+        O simplemente un botón: “Reserva ahora”
 
 4. Ubicación
-        Muestra dónde están tus bodegas.
-
-        Incluye:
-
-        Mapa de Google embebido
-
-        Dirección completa
-
-        Teléfono y WhatsApp
-
-        Horarios de atención
-
-        Indicaciones si es difícil llegar
-
         ✅ Botón: “Cómo llegar”
-
-5. Galería o Recorrido Virtual
-        Muestra fotos del lugar real.
-
-        Imágenes de las unidades, pasillos, cámaras de seguridad, parqueo, etc.
-
-        Si puedes, agrega un video corto del lugar.
-
-
-6. Precios o Planes
-        Muestra precios de forma clara si puedes, o al menos desde cuánto cuestan.
-
-        Ejemplo:
-
-        Desde Bs. 200/mes
-        ¡Reserva hoy y obtén tu primer mes con descuento!

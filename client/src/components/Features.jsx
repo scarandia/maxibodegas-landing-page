@@ -1,4 +1,3 @@
-import React from 'react'
 import { ShieldCheck, MapPin, Boxes } from 'lucide-react'
 
 const features = [
