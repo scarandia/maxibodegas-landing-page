@@ -49,13 +49,10 @@ const GallerySection = () => {
   const visibleImages = images.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <div id="gallerySection" className="bg-gradient-to-b from-gray-50 to-white py-10 px-4 sm:px-6 md:px-16 lg:px-24">
+    <div id="gallerySection" className="bg-gradient-to-b from-gray-50 to-white py-24 px-4 sm:px-6 md:px-16 lg:px-24">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <span className="inline-block bg-blue-100 text-blue-800 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full mb-2 sm:mb-3">
-            Galería Corporativa
-          </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900">
             <span className="text-blue-600">Conoce nuestras instalaciones</span> en imágenes
           </h2>
@@ -64,7 +61,7 @@ const GallerySection = () => {
           </p>
         </div>
 
-        {/* ✅ Carrusel en móviles */}
+        {/* Carrusel en móviles */}
         <div className="md:hidden relative w-full h-64 overflow-hidden rounded-xl">
           <AnimatePresence mode="wait">
             <motion.img
@@ -103,7 +100,7 @@ const GallerySection = () => {
           </div>
         </div>
 
-        {/* ✅ Grid en desktop */}
+        {/* Grid en desktop */}
         <div className="hidden md:block relative mt-8">
           {startIndex > 0 && (
             <button
@@ -159,7 +156,7 @@ const GallerySection = () => {
               onClick={() => setSelectedImage(null)}
               className="absolute top-3 right-3 bg-white/80 rounded-full p-2 sm:p-3 hover:bg-white transition"
             >
-              <X className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700" />
+              <X className="w-1 h-1 sm:w-8 sm:h-8 text-gray-700" />
             </button>
           </div>
         </div>

@@ -3,7 +3,7 @@ import { ShieldCheck, MapPin, Boxes } from 'lucide-react'
 const features = [
   {
     title: 'Espacios versátiles',
-    description: 'Ofrecemos unidades de almacenamiento que se adaptan a tus necesidades, desde pequeños objetos personales hasta mobiliario completo.',
+    description: 'Soluciones de almacenamiento empresarial que se adaptan a tu stock, maquinaria y material de trabajo.',
     icon: <Boxes className="w-10 h-10 text-blue-600" />,
   },
   {
@@ -13,7 +13,7 @@ const features = [
   },
   {
     title: 'Ubicación estratégica',
-    description: 'Estamos ubicados en zonas clave para facilitar el acceso rápido, sin importar si vienes del centro o de áreas periféricas.',
+    description: 'Estamos ubicados estratégicamente en la Avenida Prolongación Beni entre sexto y séptimo anillo. Calle Clara Cuta #707.',
     icon: <MapPin className="w-10 h-10 text-blue-600" />,
   },
 ]

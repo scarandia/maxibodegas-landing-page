@@ -1,5 +1,11 @@
-import React from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
+import { FaWhatsapp } from "react-icons/fa";
+
+const whatsappContacts = [
+  { number: "59170111166", display: "+(591) 701-111-66", name: "Ventas" },
+  { number: "59179724568", display: "+(591) 797-245-68", name: "Gerencia Comercial" },
+  { number: "59162118992", display: "+(591) 621-189-92", name: "Administración" },
+];
 
 const Contact = () => {
   return (
@@ -14,14 +20,14 @@ const Contact = () => {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 md:px-16 lg:px-24 py-16 space-y-12">
-        
+
         {/* First Row: Contact Info + Form */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           {/* Contact Information */}
           <div className="space-y-8 h-full">
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 h-full flex flex-col">
               <h2 className="text-2xl font-bold text-gray-800 mb-6">Información de Contacto</h2>
-              
+
               <div className="space-y-6">
                 {/* Address */}
                 <div className="flex items-start gap-4">
@@ -37,23 +43,25 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Phone */}
-                <div className="flex items-center gap-4">
-                  <div className="bg-blue-100 p-3 rounded-full flex-shrink-0">
-                    <Phone className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-800">Llámanos</h3>
-                    <a href="tel:70111166" className="text-gray-600 hover:text-blue-600 transition mt-1 block">
-                      +591 (701) 111 66
+                {/* WhatsApp Contact */}
+                <div className="flex flex-col gap-4">
+                  {whatsappContacts.map((contact, index) => (
+                    <a
+                      key={index}
+                      href={`https://wa.me/${contact.number}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-4 bg-green-400 hover:bg-green-600 text-white px-4 py-3 rounded-lg shadow-md transition-all"
+                    >
+                      <div className="bg-white p-2 rounded-full">
+                        <FaWhatsapp className="w-7 h-7 text-green-500" />
+                      </div>
+                      <div className="text-left">
+                        <h3 className="font-bold text-white">{contact.name}</h3>
+                        <p className="text-sm opacity-90">{contact.display}</p>
+                      </div>
                     </a>
-                    <a href="tel:79724568" className="text-gray-600 hover:text-blue-600 transition mt-1 block">
-                      +591 (797) 245 68
-                    </a>
-                    <a href="tel:62118992" className="text-gray-600 hover:text-blue-600 transition mt-1 block">
-                      +591 (621) 189 92
-                    </a>
-                  </div>
+                  ))}
                 </div>
 
                 {/* Email */}
@@ -82,8 +90,8 @@ const Contact = () => {
                     <p className="text-gray-600 mt-1">
                       Lunes a Sabado: 8:30 AM - 4:00 PM<br />
                       Domingos: Cerrado<br /><br />
-                      Visitas fuera de horario con previa coordinación
                     </p>
+                    <p className='text-bold text-blue-600'>Visitas fuera de horario con previa coordinación</p>
                   </div>
                 </div>
               </div>
@@ -170,16 +178,16 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center">
-                <input
+               {/*  <input
                   id="privacy"
                   name="privacy"
                   type="checkbox"
                   required
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-                />
-                <label htmlFor="privacy" className="ml-2 block text-sm text-gray-700">
+                /> 
+                 <label htmlFor="privacy" className="ml-2 block text-sm text-gray-700">
                   Acepto la política de privacidad
-                </label>
+                </label> */}
               </div>
 
               <button
@@ -205,7 +213,7 @@ const Contact = () => {
 
         {/* Second Row: Full-width Map */}
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-          <h3 className="font-semibold text-gray-800 mb-4">Ubicación</h3>
+          <h3 className="font-bold text-gray-800 mb-4 text-center text-xl">Ubicación</h3>
           <div className="w-full h-[450px] rounded-lg overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.254832101019!2d-63.162926925162694!3d-17.73262797366083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93f1e7ab948ee4cb%3A0xd70c2bdfcaa71226!2sMaxiBodegas!5e0!3m2!1ses-419!2sbo!4v1755200771217!5m2!1ses-419!2sbo"

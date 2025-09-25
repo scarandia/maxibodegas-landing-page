@@ -42,3 +42,19 @@
 
 4. Ubicación
         ✅ Botón: “Cómo llegar”
+
+
+
+       {/* 📍
+   1. Ubicación estratégica, a minutos Equipetrol.
+
+    2. Seguridad
+
+    3. Tamaños 
+
+    4. 📏 Altura ideal: 2,90 m para optimizar el almacenaje
+
+    5. 🅿 Parqueo disponible 24/7
+
+    6. 🚚 Apoyo logístico y transporte.
+ */}

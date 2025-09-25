@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, MapPin, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone } from 'lucide-react';
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
     return (
@@ -12,17 +13,28 @@ const Footer = () => {
                             Maxi<span className="text-green-400">Bodegas</span>
                         </h3>
                         <p className="text-gray-400">
-                            Soluciones de almacenamiento confiables para hogares y negocios desde 2010.
+                            Soluciones de almacenamiento confiables para negocios y hogares desde 2010.
                         </p>
                         <div className="flex space-x-4 pt-2">
-                            <a href="https://www.facebook.com/MaxiBodegasBo" className="text-gray-400 hover:text-blue-400 transition">
+                            <a href="https://www.facebook.com/MaxiBodegasBo" className="text-gray-400 hover:text-blue-400 transition"
+                                target="_blank"
+                            >
                                 <Facebook className="w-6 h-6" />
                             </a>
-                            <a href="https://www.instagram.com/maxibodegas.bo/" className="text-gray-400 hover:text-blue-400 transition">
+                            <a href="https://www.instagram.com/maxibodegas.bo/" className="text-gray-400 hover:text-blue-400 transition"
+                                target="_blank"
+                            >
                                 <Instagram className="w-6 h-6" />
                             </a>
-                            <a href="https://bo.linkedin.com/company/maxibodegas" className="text-gray-400 hover:text-blue-400 transition">
+                            <a href="https://bo.linkedin.com/company/maxibodegas" className="text-gray-400 hover:text-blue-400 transition"
+                                target="_blank"
+                            >
                                 <Linkedin className="w-6 h-6" />
+                            </a>
+                            <a href="https://www.tiktok.com/@maxibodegas.bo" className="text-gray-400 hover:text-blue-400 transition"
+                                target="_blank"
+                            >
+                                <FaTiktok className="w-6 h-6" />
                             </a>
                         </div>
                     </div>
