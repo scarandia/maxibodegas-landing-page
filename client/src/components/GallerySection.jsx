@@ -4,21 +4,23 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import img1 from "/Gallery/Bodegas1.jpg";
 import img2 from "/Gallery/Bodegas2.jpg";
-import img3 from "/Gallery/Camion1.jpg";
-import img5 from "/Gallery/Camion4.jpg";
-import img7 from "/Gallery/Fachada2.jpg";
-import img8 from "/Gallery/Fachada3.jpg";
-import img9 from "/Gallery/Fachada4.jpg";
-import img10 from "/Gallery/Fachada5.jpg";
-import img11 from "/Gallery/Camion3.jpg";
-import img12 from "/Gallery/Camion5.jpg";
-import img15 from "/Gallery/Fachada10.jpg";
-import img18 from "/Gallery/Interior3.jpg";
+import img3 from "/Gallery/CamionDentro2.jpg";
+import img4 from "/Gallery/Fachada2.jpg";
+import img5 from "/Gallery/Fachada3.jpg";
+import img6 from "/Gallery/Fachada4.jpg";
+import img7 from "/Gallery/Fachada5.jpg";
+import img8 from "/Gallery/Camion3.jpg";
+import img9 from "/Gallery/Camion5.jpg";
+import img10 from "/Gallery/Fachada10.jpg";
+import img11 from "/Gallery/Interior3.jpg";
+import img12 from "/Gallery/Exterior1.jpg";
+/* import vid1 from "/Gallery/VidTest.mp4"; */
 
 const GallerySection = () => {
   const images = [
-    img1, img2, img3, img8, img5, img7,
-    img9, img10, img18, img11, img12, img15
+    img10, img2, img1, img5, img3, img4,
+    img6, img7, img11, img8, img12, img9,
+    /* vid1 */
   ];
 
   const itemsPerPage = 6;

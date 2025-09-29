@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Warehouse, ShieldCheck, Truck, CalendarCheck, LocationEdit, Ruler, CircleParking, Forklift } from "lucide-react"
+import {
+  Warehouse,
+  ShieldCheck,
+  CalendarCheck,
+  LocationEdit,
+  Ruler,
+  CircleParking,
+  Forklift,
+} from "lucide-react"
 
 const HeroInfoCard = () => {
   const features = [
@@ -43,20 +51,33 @@ const HeroInfoCard = () => {
   ]
 
   const [startIndex, setStartIndex] = useState(0)
+  const [itemsPerSlide, setItemsPerSlide] = useState(
+    window.innerWidth < 640 ? 2 : 3
+  )
 
-  // Rotate every 5 seconds
+  // Adjust items per slide on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerSlide(window.innerWidth < 640 ? 2 : 3)
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  // Rotate slides
   useEffect(() => {
     const interval = setInterval(() => {
-      setStartIndex((prev) => (prev + 3) % features.length)
+      setStartIndex((prev) => (prev + itemsPerSlide) % features.length)
     }, 8000)
     return () => clearInterval(interval)
-  }, [features.length])
+  }, [features.length, itemsPerSlide])
 
+  // Get visible items for the current slide
   const visible = features
-    .slice(startIndex, startIndex + 3)
+    .slice(startIndex, startIndex + itemsPerSlide)
     .concat(
-      startIndex + 3 > features.length
-        ? features.slice(0, (startIndex + 3) % features.length)
+      startIndex + itemsPerSlide > features.length
+        ? features.slice(0, (startIndex + itemsPerSlide) % features.length)
         : []
     )
 
@@ -67,7 +88,8 @@ const HeroInfoCard = () => {
       </h2>
 
       <p className="text-gray-800 text-base md:text-lg mb-8 leading-relaxed font-medium">
-        Bodegas seguras y accesibles desde 9m² hasta 133m². Reserva hoy, sin complicaciones.
+        Bodegas seguras y accesibles desde 9m² hasta 133m². Reserva hoy, sin
+        complicaciones.
       </p>
 
       {/* Animated Grid */}
@@ -79,12 +101,13 @@ const HeroInfoCard = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="absolute w-full grid grid-cols-1 sm:grid-cols-3 gap-6"
+            // Use flexbox so items sit side by side
+            className={`absolute w-full flex justify-center gap-6`}
           >
             {visible.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center text-center gap-2"
+                className="flex flex-col items-center text-center gap-2 w-1/2 sm:w-1/3"
               >
                 <div className={`${item.bg} p-3 rounded-full`}>{item.icon}</div>
                 <span className="text-sm font-bold text-gray-800">
@@ -100,7 +123,7 @@ const HeroInfoCard = () => {
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <button
           onClick={() => {
-            document.getElementById("contact")?.scrollIntoView({
+            document.getElementById("sizeComparison")?.scrollIntoView({
               behavior: "smooth",
             })
           }}

@@ -6,7 +6,7 @@ const HeroSection = () => {
 
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div id='heroSection' className="relative h-screen overflow-hidden">
       {/* Blurry background image */}
       <div
         className='absolute inset-0 bg-[url("/BgImg/bg7.png")] bg-cover bg-center'

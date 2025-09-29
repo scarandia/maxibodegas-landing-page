@@ -162,7 +162,20 @@ const SizeComparisonSection = () => {
                   )}
                 </div>
 
-                <button className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium py-3 px-4 rounded-lg transition shadow-md">
+                <button
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium py-3 px-4 rounded-lg transition shadow-md hover:cursor-pointer"
+                  onClick={() => {
+                    if (!selectedSize) return;
+
+                    const phoneNumber = "59170111166";
+                    const message = `¡Hola! Quiero reservar la bodega de *${selectedSize.size}*.`
+                    const encodedMessage = encodeURIComponent(message);
+                    //const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                    const whatsappUrl = `https://web.whatsapp.com/send/?phone=${phoneNumber}&text=${encodedMessage}`;
+
+                    window.open(whatsappUrl, "_blank");
+                  }}
+                >
                   Reserva esta bodega
                 </button>
               </div>

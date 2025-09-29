@@ -99,7 +99,7 @@ const StorageExplanation = () => {
                   {[
                     {
                       icon: Boxes,
-                      text: "Pequeñas y medianas empresas",
+                      text: "Medianas y pequeñas empresas",
                       desc: "Almacena, organiza y protege tu mercadería sin complicaciones.",
                       color: "from-purple-100 to-blue-200"
                     },
@@ -111,7 +111,7 @@ const StorageExplanation = () => {
                     },
                     {
                       icon: Clock,
-                      text: "Personas en proceso de mudanza",
+                      text: "Familias en proceso de mudanza",
                       desc: "Guarda tus pertenencias de forma segura durante la transición",
                       color: "from-indigo-100 to-blue-200"
                     }

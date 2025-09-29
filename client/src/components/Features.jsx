@@ -1,6 +1,11 @@
 import { ShieldCheck, MapPin, Boxes } from 'lucide-react'
 
 const features = [
+{
+    title: 'Ubicación estratégica',
+    description: 'Estamos ubicados estratégicamente en la Avenida Prolongación Beni entre sexto y séptimo anillo. Calle Clara Cuta #707.',
+    icon: <MapPin className="w-10 h-10 text-blue-600" />,
+  },
   {
     title: 'Espacios versátiles',
     description: 'Soluciones de almacenamiento empresarial que se adaptan a tu stock, maquinaria y material de trabajo.',
@@ -10,11 +15,6 @@ const features = [
     title: 'Seguridad 24/7',
     description: 'Nuestras instalaciones cuentan con vigilancia constante, cámaras de seguridad y acceso controlado las 24 horas del día.',
     icon: <ShieldCheck className="w-10 h-10 text-blue-600" />,
-  },
-  {
-    title: 'Ubicación estratégica',
-    description: 'Estamos ubicados estratégicamente en la Avenida Prolongación Beni entre sexto y séptimo anillo. Calle Clara Cuta #707.',
-    icon: <MapPin className="w-10 h-10 text-blue-600" />,
   },
 ]
 
