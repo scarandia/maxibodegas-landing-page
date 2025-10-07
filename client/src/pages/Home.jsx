@@ -13,6 +13,7 @@ const Home = () => {
             <Navbar />
             <HeroSection />
             <StorageExplanation />
+            
             <Features />
             <SizeComparison />
             <GallerySection />
