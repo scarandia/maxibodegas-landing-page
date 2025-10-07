@@ -23,3 +23,6 @@ ideas.txt
 *.njsproj
 *.sln
 *.sw?
+
+package.json
+package-lock.json
