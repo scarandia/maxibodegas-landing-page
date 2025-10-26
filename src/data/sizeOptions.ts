@@ -95,7 +95,7 @@ const sizeOptions = [
     textColor: 'text-orange-600',
     sizes: [
       {
-        size: '120m²',
+        size: '115m²',
         description:
           'Bodega de 120 m², diseñada para grandes volúmenes de inventario, ideal para operaciones logísticas de gran escala. Capacidad aproximada: 40–45 pallets estándar.',
         price: 'Consultar Precio',

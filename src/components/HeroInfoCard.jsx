@@ -28,7 +28,7 @@ const HeroInfoCard = () => {
       icon: <Warehouse className="text-blue-800 w-10 h-10" />,
       bg: "bg-blue-100",
       title: "Desde 9m²",
-      desc: "Hasta bodegas de 133m²",
+      desc: "Hasta bodegas de 115m²",
     },
     {
       icon: <Ruler className="text-blue-800 w-10 h-10" />,
@@ -88,7 +88,7 @@ const HeroInfoCard = () => {
       </h2>
 
       <p className="text-gray-800 text-base md:text-lg mb-8 leading-relaxed font-medium">
-        Bodegas seguras y accesibles desde 9m² hasta 133m². Reserva hoy, sin
+        Bodegas seguras y accesibles desde 9m² hasta 115m². Reserva hoy, sin
         complicaciones.
       </p>
 
