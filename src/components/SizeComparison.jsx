@@ -10,6 +10,12 @@ const SizeComparisonSection = () => {
   const mainCategories = sizeOptions.slice(0, 2);       // Compactos + Amplios
   const otrosCategory = sizeOptions[sizeOptions.length - 1]; // Otros Espacios
 
+  const handleSelectSize = (size) => setSelectedSize(size);
+
+  const handleKeyDown = (e, size) => {
+    if (e.key === 'Enter' || e.key === ' ') handleSelectSize(size);
+  };
+
   return (
     <div id="sizeComparison">
       <section className="bg-gradient-to-b from-blue-50 to-gray-50 py-24 px-6 md:px-16 lg:px-24">
@@ -37,17 +43,14 @@ const SizeComparisonSection = () => {
             {mainCategories.map((category, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-xl shadow-md p-6 border-t-4 ${index === 0 ? 'border-blue-500' : 'border-green-500'
-                  }`}
+                className={`bg-white rounded-xl shadow-md p-6 border-t-4 ${index === 0 ? 'border-blue-500' : 'border-green-500'}`}
               >
                 {/* Header */}
                 <div
                   className={`flex items-center gap-3 mb-6 p-3 ${category.iconColor} rounded-lg`}
                 >
-                  <Expand className={`w-6 h-6 ${category.textColor}`} />
-                  <h3 className={`text-xl font-bold ${category.textColor}`}>
-                    {category.category}
-                  </h3>
+                  <Expand className={`w-6 h-6 ${category.textColor}`} title={category.category} />
+                  <h3 className={`text-xl font-bold ${category.textColor}`}>{category.category}</h3>
                 </div>
 
                 {/* Sizes */}
@@ -55,49 +58,30 @@ const SizeComparisonSection = () => {
                   {category.sizes.map((size, i) => (
                     <div
                       key={i}
-                      onClick={() => setSelectedSize(size)}
-                      className={`relative border-2 border-gray-100 rounded-lg p-5 hover:shadow-lg transition cursor-pointer group ${index === 0
-                          ? 'hover:border-blue-200'
-                          : 'hover:border-green-200'
-                        }`}
+                      role="button"
+                      tabIndex={0}
+                      aria-label={`Seleccionar ${size.size}`}
+                      onClick={() => handleSelectSize(size)}
+                      onKeyDown={(e) => handleKeyDown(e, size)}
+                      className={`relative border-2 border-gray-100 rounded-lg p-5 hover:shadow-lg transition cursor-pointer group ${index === 0 ? 'hover:border-blue-200' : 'hover:border-green-200'}`}
                     >
                       {size.highlight && (
-                        <span
-                          className={`absolute -top-2 -right-2 text-xs font-bold px-2 py-1 rounded-full ${index === 0
-                              ? 'bg-blue-600 text-white'
-                              : 'bg-green-600 text-white'
-                            }`}
-                        >
+                        <span className={`absolute -top-2 -right-2 text-xs font-bold px-2 py-1 rounded-full ${index === 0 ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'}`}>
                           {size.highlight}
                         </span>
                       )}
 
                       <div className="flex justify-between items-start">
                         <div>
-                          <h4
-                            className={`text-lg font-semibold group-hover:underline ${index === 0
-                                ? 'text-blue-800'
-                                : 'text-green-800'
-                              }`}
-                          >
+                          <h4 className={`text-lg font-semibold group-hover:underline ${index === 0 ? 'text-blue-800' : 'text-green-800'}`}>
                             {size.size}
                           </h4>
-                          <p className="text-gray-600 text-sm mt-1">
-                            {size.description}
-                          </p>
+                          <p className="text-gray-600 text-sm mt-1">{size.description}</p>
                         </div>
-                        <ChevronRight
-                          className={`w-5 h-5 text-gray-400 group-hover:${index === 0 ? 'text-blue-500' : 'text-green-500'
-                            } mt-1`}
-                        />
+                        <ChevronRight className={`w-5 h-5 text-gray-400 group-hover:${index === 0 ? 'text-blue-500' : 'text-green-500'} mt-1`} />
                       </div>
                       <div className="mt-3 flex items-center justify-between">
-                        <span
-                          className={`font-medium text-sm ${index === 0
-                              ? 'text-blue-600'
-                              : 'text-green-600'
-                            }`}
-                        >
+                        <span className={`font-medium text-sm ${index === 0 ? 'text-blue-600' : 'text-green-600'}`}>
                           {size.price}
                         </span>
                       </div>
@@ -112,13 +96,9 @@ const SizeComparisonSection = () => {
           <div className="mt-12">
             <div className="bg-white rounded-xl shadow-md p-6 border-t-4 border-orange-200">
               {/* Header */}
-              <div
-                className={`flex items-center gap-3 mb-6 p-3 ${otrosCategory.iconColor} rounded-lg`}
-              >
-                <Expand className={`w-6 h-6 ${otrosCategory.textColor}`} />
-                <h3 className={`text-xl font-bold ${otrosCategory.textColor}`}>
-                  {otrosCategory.category}
-                </h3>
+              <div className={`flex items-center gap-3 mb-6 p-3 ${otrosCategory.iconColor} rounded-lg`}>
+                <Expand className={`w-6 h-6 ${otrosCategory.textColor}`} title={otrosCategory.category} />
+                <h3 className={`text-xl font-bold ${otrosCategory.textColor}`}>{otrosCategory.category}</h3>
               </div>
 
               {/* Sizes */}
@@ -126,31 +106,28 @@ const SizeComparisonSection = () => {
                 {otrosCategory.sizes.map((size, i) => (
                   <div
                     key={i}
-                    onClick={() => setSelectedSize(size)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Seleccionar ${size.size}`}
+                    onClick={() => handleSelectSize(size)}
+                    onKeyDown={(e) => handleKeyDown(e, size)}
                     className="relative border-2 border-gray-100 rounded-lg p-5 hover:shadow-lg transition cursor-pointer group hover:border-orange-200"
                   >
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="text-lg font-semibold text-orange-600 group-hover:underline">
-                          {size.size}
-                        </h4>
-                        <p className="text-gray-600 text-sm mt-1">
-                          {size.description}
-                        </p>
+                        <h4 className="text-lg font-semibold text-orange-600 group-hover:underline">{size.size}</h4>
+                        <p className="text-gray-600 text-sm mt-1">{size.description}</p>
                       </div>
                       <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-orange-500 mt-1" />
                     </div>
                     <div className="mt-3 flex items-center justify-between">
-                      <span className="font-medium text-sm text-orange-600">
-                        {size.price}
-                      </span>
+                      <span className="font-medium text-sm text-orange-600">{size.price}</span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
           </div>
-          {/* end Otros Espacios */}
         </div>
       </section>
     </div>

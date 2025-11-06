@@ -1,13 +1,20 @@
+import { Helmet } from "react-helmet-async";
+
 const AboutUs = () => {
   return (
-    <section id="about" className="relative py-16 md:py-24 px-6 overflow-hidden bg-white">
+    <section id="about" aria-labelledby="about-heading" className="relative py-16 md:py-24 px-6 overflow-hidden bg-white animate-fadeIn">
+
+      <Helmet>
+        <title>Sobre Nosotros | Maxibodegas</title>
+        <meta name="description" content="Maxibodegas ofrece soluciones inteligentes de almacenamiento en Santa Cruz, con bodegas seguras y flexibles para empresas, emprendedores y personas." />
+      </Helmet>
 
       {/* Background decorative shapes */}
       <div className="absolute -top-16 -left-16 w-40 h-40 md:w-72 md:h-72 bg-blue-100 rounded-full opacity-30 blur-2xl"></div>
       <div className="absolute -bottom-16 -right-16 w-40 h-40 md:w-72 md:h-72 bg-indigo-100 rounded-full opacity-30 blur-2xl"></div>
 
       <div className="max-w-5xl mx-auto relative z-10 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold mb-8">
+        <h2 id="about-heading" className="text-3xl md:text-4xl font-extrabold mb-8 text-center">
           <span className="bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent">
             Sobre Nosotros
           </span>
@@ -31,14 +38,14 @@ const AboutUs = () => {
           <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-md border border-blue-50">
             <h3 className="text-xl font-bold text-blue-700 mb-3">Misión</h3>
             <p className="text-gray-700 leading-relaxed text-base">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
+              Proveer soluciones inteligentes y seguras de almacenamiento, adaptadas a las necesidades de crecimiento y logística de empresas, emprendedores y personas en Santa Cruz.
             </p>
           </div>
 
           <div className="bg-white/70 backdrop-blur-sm p-6 rounded-2xl shadow-md border border-blue-50">
             <h3 className="text-xl font-bold text-blue-700 mb-3">Visión</h3>
             <p className="text-gray-700 leading-relaxed text-base">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor.
+              Ser la red de bodegas más confiable y moderna de Bolivia, impulsando el desarrollo empresarial con espacios flexibles, tecnología y servicio excepcional.
             </p>
           </div>
         </div>

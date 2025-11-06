@@ -13,37 +13,37 @@ import {
 const HeroInfoCard = () => {
   const features = [
     {
-      icon: <LocationEdit className="text-blue-800 w-10 h-10" />,
+      icon: <LocationEdit className="text-blue-800 w-10 h-10" title="Ubicación estratégica" />,
       bg: "bg-blue-100",
       title: "Ubicación estratégica",
       desc: "A minutos de Equipetrol",
     },
     {
-      icon: <ShieldCheck className="text-blue-800 w-10 h-10" />,
+      icon: <ShieldCheck className="text-blue-800 w-10 h-10" title="Seguridad 24/7" />,
       bg: "bg-blue-100",
       title: "Seguridad 24/7",
       desc: "Monitoreo físico y digital",
     },
     {
-      icon: <Warehouse className="text-blue-800 w-10 h-10" />,
+      icon: <Warehouse className="text-blue-800 w-10 h-10" title="Desde 9m²" />,
       bg: "bg-blue-100",
       title: "Desde 9m²",
       desc: "Hasta bodegas de 115m²",
     },
     {
-      icon: <Ruler className="text-blue-800 w-10 h-10" />,
+      icon: <Ruler className="text-blue-800 w-10 h-10" title="Altura ideal" />,
       bg: "bg-blue-100",
       title: "Altura ideal",
       desc: "Altura de 2,90 metros",
     },
     {
-      icon: <CircleParking className="text-blue-800 w-10 h-10" />,
+      icon: <CircleParking className="text-blue-800 w-10 h-10" title="Parqueo disponible" />,
       bg: "bg-blue-100",
       title: "Parqueo disponible",
       desc: "Disponibilidad 24/7",
     },
     {
-      icon: <Forklift className="text-blue-800 w-10 h-10" />,
+      icon: <Forklift className="text-blue-800 w-10 h-10" title="Apoyo logístico" />,
       bg: "bg-blue-100",
       title: "Apoyo logístico",
       desc: "Agiliza tu proceso de almacenamiento",
@@ -51,20 +51,17 @@ const HeroInfoCard = () => {
   ]
 
   const [startIndex, setStartIndex] = useState(0)
-  const [itemsPerSlide, setItemsPerSlide] = useState(
-    window.innerWidth < 640 ? 2 : 3
-  )
+  const [itemsPerSlide, setItemsPerSlide] = useState(3)
 
-  // Adjust items per slide on window resize
+  // Detectar tamaño de ventana solo en cliente
   useEffect(() => {
-    const handleResize = () => {
-      setItemsPerSlide(window.innerWidth < 640 ? 2 : 3)
-    }
+    const handleResize = () => setItemsPerSlide(window.innerWidth < 640 ? 2 : 3)
+    handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  // Rotate slides
+  // Rotar slides automáticamente
   useEffect(() => {
     const interval = setInterval(() => {
       setStartIndex((prev) => (prev + itemsPerSlide) % features.length)
@@ -72,7 +69,7 @@ const HeroInfoCard = () => {
     return () => clearInterval(interval)
   }, [features.length, itemsPerSlide])
 
-  // Get visible items for the current slide
+  // Obtener items visibles
   const visible = features
     .slice(startIndex, startIndex + itemsPerSlide)
     .concat(
@@ -101,7 +98,6 @@ const HeroInfoCard = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            // Use flexbox so items sit side by side
             className={`absolute w-full flex justify-center gap-6`}
           >
             {visible.map((item, idx) => (
@@ -110,9 +106,7 @@ const HeroInfoCard = () => {
                 className="flex flex-col items-center text-center gap-2 w-1/2 sm:w-1/3"
               >
                 <div className={`${item.bg} p-3 rounded-full`}>{item.icon}</div>
-                <span className="text-sm font-bold text-gray-800">
-                  {item.title}
-                </span>
+                <span className="text-sm font-bold text-gray-800">{item.title}</span>
                 <span className="text-xs text-gray-600">{item.desc}</span>
               </div>
             ))}
@@ -128,6 +122,7 @@ const HeroInfoCard = () => {
             })
           }}
           className="bg-blue-600 hover:bg-blue-700 text-white text-base md:text-lg font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+          aria-label="Reservar una bodega hoy"
         >
           <CalendarCheck className="w-5 h-5" />
           Reserva Hoy

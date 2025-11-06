@@ -14,38 +14,38 @@ import img9 from "/Gallery/Camion5.jpg";
 import img10 from "/Gallery/Fachada10.jpg";
 import img11 from "/Gallery/Interior3.jpg";
 import img12 from "/Gallery/Exterior1.jpg";
-/* import vid1 from "/Gallery/VidTest.mp4"; */
+
+/* Imagenes con descripción para SEO */
+const images = [
+  { src: img10, alt: "Vista exterior del edificio de almacenamiento MaxiBodegas" },
+  { src: img2, alt: "Pasillo con puertas de almacenamiento" },
+  { src: img1, alt: "Vista interna de una bodega" },
+  { src: img5, alt: "Entrada principal con un guardia presente" },
+  { src: img3, alt: "Puerta principal y camión saliendo" },
+  { src: img4, alt: "Muro exterior con el logo de MaxiBodegas" },
+  { src: img6, alt: "Vista externa del jardín" },
+  { src: img7, alt: "Vista externa nocturna de la bodega" },
+  { src: img11, alt: "Pasillo de unidades de almacenamiento" },
+  { src: img8, alt: "Camión entrando a las instalaciones" },
+  { src: img12, alt: "Vista externa mirando hacia afuera" },
+  { src: img9, alt: "Camión dentro de las instalaciones" },
+];
 
 const GallerySection = () => {
-  const images = [
-    img10, img2, img1, img5, img3, img4,
-    img6, img7, img11, img8, img12, img9,
-    /* vid1 */
-  ];
-
   const itemsPerPage = 6;
   const [startIndex, setStartIndex] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const [current, setCurrent] = useState(0);
 
-  const handleNext = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
-  };
-
-  const handlePrev = () => {
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
-  };
+  const handleNext = () => setCurrent((prev) => (prev + 1) % images.length);
+  const handlePrev = () => setCurrent((prev) => (prev - 1 + images.length) % images.length);
 
   const handleNextGrid = () => {
-    if (startIndex + itemsPerPage < images.length) {
-      setStartIndex(startIndex + itemsPerPage);
-    }
+    if (startIndex + itemsPerPage < images.length) setStartIndex(startIndex + itemsPerPage);
   };
 
   const handlePrevGrid = () => {
-    if (startIndex - itemsPerPage >= 0) {
-      setStartIndex(startIndex - itemsPerPage);
-    }
+    if (startIndex - itemsPerPage >= 0) setStartIndex(startIndex - itemsPerPage);
   };
 
   const visibleImages = images.slice(startIndex, startIndex + itemsPerPage);
@@ -68,26 +68,29 @@ const GallerySection = () => {
           <AnimatePresence mode="wait">
             <motion.img
               key={current}
-              src={images[current]}
-              alt={`Imagen ${current + 1}`}
+              src={images[current].src}
+              alt={images[current].alt}
               className="w-full h-full object-cover"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
               onClick={() => setSelectedImage(images[current])}
+              title={images[current].alt}
             />
           </AnimatePresence>
           {/* Botones navegación */}
           <button
             onClick={handlePrev}
             className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white/70 p-2 rounded-full hover:bg-white transition"
+            aria-label="Imagen anterior"
           >
             <ChevronLeft className="w-5 h-5 text-gray-700" />
           </button>
           <button
             onClick={handleNext}
             className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/70 p-2 rounded-full hover:bg-white transition"
+            aria-label="Siguiente imagen"
           >
             <ChevronRight className="w-5 h-5 text-gray-700" />
           </button>
@@ -108,6 +111,7 @@ const GallerySection = () => {
             <button
               onClick={handlePrevGrid}
               className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100 transition z-10"
+              aria-label="Imágenes anteriores"
             >
               <ChevronLeft className="w-6 h-6 text-gray-700" />
             </button>
@@ -116,6 +120,7 @@ const GallerySection = () => {
             <button
               onClick={handleNextGrid}
               className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100 transition z-10"
+              aria-label="Siguiente imágenes"
             >
               <ChevronRight className="w-6 h-6 text-gray-700" />
             </button>
@@ -128,8 +133,9 @@ const GallerySection = () => {
                 onClick={() => setSelectedImage(img)}
               >
                 <img
-                  src={img}
-                  alt={`Imagen corporativa ${index + 1}`}
+                  src={img.src}
+                  alt={img.alt}
+                  title={img.alt}
                   className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -150,15 +156,17 @@ const GallerySection = () => {
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 px-3">
           <div className="relative w-full max-w-3xl max-h-[90vh] flex justify-center">
             <img
-              src={selectedImage}
-              alt="Imagen ampliada"
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              title={selectedImage.alt}
               className="w-auto h-auto max-w-full max-h-[90vh] rounded-lg shadow-xl object-contain"
             />
             <button
               onClick={() => setSelectedImage(null)}
               className="absolute top-3 right-3 bg-white/80 rounded-full p-2 sm:p-3 hover:bg-white transition"
+              aria-label="Cerrar imagen"
             >
-              <X className="w-1 h-1 sm:w-8 sm:h-8 text-gray-700" />
+              <X className="w-8 h-8 text-gray-700" />
             </button>
           </div>
         </div>

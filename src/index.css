@@ -21,3 +21,11 @@ body {
   color: #2d5be3;
   background-color: #f5f7fa;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out both;
+}
